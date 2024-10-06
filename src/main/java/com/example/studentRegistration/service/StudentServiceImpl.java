@@ -21,7 +21,7 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public Stream<Student> getAllStudents() {return studentRepository.findAll().stream();}
+    public List<Student> getAllStudents() {return studentRepository.findAll();}
 
     @Override
     public Student createStudent(Student student) {

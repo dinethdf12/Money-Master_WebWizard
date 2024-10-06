@@ -7,5 +7,5 @@ import java.util.stream.Stream;
 
 public interface StudentService {
     Student createStudent(Student student);
-    Stream<Student> getAllStudents();
+    List<Student> getAllStudents();
 }

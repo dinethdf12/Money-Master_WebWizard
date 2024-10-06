@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.stream.Stream;
+import java.util.List;
 
 @RestController
 @RequestMapping
@@ -19,14 +19,16 @@ public class StudentController {
     @Autowired
     StudentServiceImpl studentService;
 
+    @GetMapping("/students")
+    public ResponseEntity<List<Student>> getAllStudents(){
+        return  ResponseEntity.ok(studentService.getAllStudents());
+    }
+
     @PostMapping("/students")
     public ResponseEntity<Student> createStudent(@Valid @RequestBody Student student) {
         return new ResponseEntity<>(studentService.createStudent(student), HttpStatus.CREATED);
     }
 
-    @GetMapping("/students")
-    public ResponseEntity<Stream<Student>>getAllStudents(){
-        return new ResponseEntity<>(studentService.getAllStudents(), HttpStatus.CREATED);
-    }
+
 
 }
