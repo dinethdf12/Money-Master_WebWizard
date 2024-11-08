@@ -24,7 +24,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public CurrentUser saveUser(CurrentUser user) {
         if (userRepository.findByUsername(user.getUsername()) == null){
-            return userRepository.save(new CurrentUser(user.getUsername(), passwordEncoder.encode(user.getPassword()),user.getRole()));
+            return userRepository.save(new CurrentUser(
+                    user.getUsername(),
+                    passwordEncoder.encode(user.getPassword()),
+                    user.getName(),
+                    user.getMobileNumber(),
+                    user.getRole()
+            ));
         } else {
             throw new RuntimeException("User already exist");
         }

@@ -28,10 +28,17 @@ public class CurrentUser {
     @NotNull(message = "Password cannot be null")
     private String password;
 
+    @Column(name = "NAME")
+    @NotNull(message = "Name cannot be null")
+    private String name;
+
+    @Column(name = "MOBILE_NUMBER")
+    @NotNull(message = "Mobile Number cannot be null")
+    private String mobileNumber;
+
     @Column(name = "ROLE")
     @NotNull(message = "Role cannot be null")
     private String role;
-
 
     @JsonIgnore
     @OneToMany(mappedBy = "currentUser")
@@ -39,9 +46,11 @@ public class CurrentUser {
 
     public CurrentUser(){}
 
-    public CurrentUser(String username, String password, String role){
+    public CurrentUser(String username, String password, String name, String mobileNumber, String role) {
         this.username = username;
         this.password = password;
+        this.name = name;
+        this.mobileNumber = mobileNumber;
         this.role = role;
     }
 }

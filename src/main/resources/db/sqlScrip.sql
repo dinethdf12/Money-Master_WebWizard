@@ -4,8 +4,6 @@ CREATE DATABASE money_master_webwizard;
 
 use money_master_webwizard;
 
-
-
 CREATE TABLE Student (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(255) NOT NULL,
