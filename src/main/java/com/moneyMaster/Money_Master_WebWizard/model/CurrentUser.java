@@ -1,6 +1,7 @@
 package com.moneyMaster.Money_Master_WebWizard.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -10,8 +11,7 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name = "USER")
-@ToString(exclude = "contacts")
+@Table(name = "user")
 public class CurrentUser {
 
 //    @Id
@@ -20,29 +20,30 @@ public class CurrentUser {
 //    private int id;
 
     @Id
-    @Column(name = "USERNAME")
+    @Column(name = "username")
     @NotNull(message = "Username cannot be null")
     private String username;
 
-    @Column(name = "PASSWORD")
+    @Column(name = "password")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @NotNull(message = "Password cannot be null")
     private String password;
 
-    @Column(name = "NAME")
+    @Column(name = "name")
     @NotNull(message = "Name cannot be null")
     private String name;
 
-    @Column(name = "MOBILE_NUMBER")
+    @Column(name = "mobile_number")
     @NotNull(message = "Mobile Number cannot be null")
     private String mobileNumber;
 
-    @Column(name = "ROLE")
+    @Column(name = "role")
     @NotNull(message = "Role cannot be null")
     private String role;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "currentUser")
-    private List<Contact> contacts;
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "currentUser")
+//    private List<Contact> contacts;
 
     public CurrentUser(){}
 

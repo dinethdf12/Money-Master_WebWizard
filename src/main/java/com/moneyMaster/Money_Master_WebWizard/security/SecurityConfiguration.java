@@ -38,6 +38,7 @@ public class SecurityConfiguration {
                     authorize.requestMatchers(HttpMethod.POST, "/user/**").permitAll();
                     authorize.requestMatchers(HttpMethod.GET, "/contact/all").hasAnyRole("ceo", "admin");
                     authorize.requestMatchers("/contact/**").authenticated();
+                    authorize.requestMatchers("/expenses/**").authenticated();
                     authorize.requestMatchers(HttpMethod.GET, "/special").hasAnyRole("ceo", "admin");
                     authorize.requestMatchers(HttpMethod.GET, "/basic").hasAnyRole("ceo", "admin", "user");
                 })

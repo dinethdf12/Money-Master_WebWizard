@@ -13,7 +13,7 @@ public class StudentServiceImpl implements StudentService{
     @Autowired
     StudentRepository studentRepository;
 
-    // Constructor injection of the StudentRepository
+    // Constructor injection of the ExpensesRepository
     @Autowired
     public StudentServiceImpl(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
