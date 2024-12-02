@@ -11,7 +11,7 @@ public interface ExpensesService {
 
     Expenses createExpenses(Expenses expenses);
     List<Expenses> getAllExpenses();
-    List<Expenses> getUserExpenses();
+    List<Expenses> getUserExpenses(String userName);
     Expenses updateExpenses(Expenses expenses);
     Expenses deleteExpenses(Expenses expenses);
 }

@@ -30,10 +30,8 @@ public class ExpensesServiceImpl implements ExpensesService {
     }
 
     @Override
-    public List<Expenses> getUserExpenses() throws UsernameNotFoundException  {
-        CurrentUser user =  userRepository.findByUsername("ddf");
-
-        System.out.println(user);
+    public List<Expenses> getUserExpenses(String userName) throws UsernameNotFoundException  {
+        CurrentUser user =  userRepository.findByUsername(userName);
         {return expensesRepository.findByUser(user);}
     }
     @Override

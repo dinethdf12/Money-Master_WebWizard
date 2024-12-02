@@ -23,9 +23,9 @@ public class ExpensesController {
         return  ResponseEntity.ok(expensesService.getAllExpenses());
     }
 
-    @GetMapping("/expenses/user")
-    public ResponseEntity<List<Expenses>> getUserExpenses(){
-        return  ResponseEntity.ok(expensesService.getUserExpenses());
+    @GetMapping("/expenses/user/{userName}")
+    public ResponseEntity<List<Expenses>> getUserExpenses(@PathVariable("userName") String userName){
+        return  ResponseEntity.ok(expensesService.getUserExpenses(userName));
     }
 
     @PostMapping("/expenses")

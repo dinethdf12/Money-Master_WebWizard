@@ -1,9 +1,7 @@
 package com.moneyMaster.Money_Master_WebWizard.model.Expenses;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.moneyMaster.Money_Master_WebWizard.model.CurrentUser;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +9,6 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -33,8 +30,12 @@ public class Expenses {
     private BigDecimal amount;
 
     @NotNull(message = "Date and time cannot be null")
-    @Column(name = "date_time", nullable = false)
-    private Date dateTime;
+    @Column(name = "happen_date", nullable = false)
+    private Date happenDate;
+
+    @NotNull(message = "Description cannot be Empty")
+    @Column(name = "description", nullable = false)
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "expenses_category_id", referencedColumnName = "id")
