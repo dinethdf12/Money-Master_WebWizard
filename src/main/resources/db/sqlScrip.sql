@@ -1,10 +1,7 @@
-
 DROP DATABASE IF EXISTS money_master_webwizard;
 CREATE DATABASE money_master_webwizard;
 
 use money_master_webwizard;
-
-
 
 CREATE TABLE Student (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -20,10 +17,13 @@ VALUES
 ('Alice', 'Johnson', 'alice.johnson@example.com');
 
 drop table USER;
+-- Create the USER table
 CREATE TABLE USER (
-    USERNAME VARCHAR(255) PRIMARY KEY NOT NULL,
-    PASSWORD VARCHAR(255) NOT NULL,
-    ROLE VARCHAR(50) NOT NULL
+    username VARCHAR(255) PRIMARY KEY,
+    password VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    mobile_number VARCHAR(15) NOT NULL,
+    role VARCHAR(50) NOT NULL
 );
 
 -- password abcd--

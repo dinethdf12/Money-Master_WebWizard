@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 public class Student {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,4 +29,5 @@ public class Student {
     @Email(message = "Email should be valid")
     @NotEmpty(message = "Email is required")
     private String email;
+
 }
